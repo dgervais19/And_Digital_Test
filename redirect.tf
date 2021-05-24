@@ -2,7 +2,7 @@ resource "aws_launch_configuration" "as_conf" {
   name          = "launch_config"
   image_id      = "ami-0943382e114f188e8"
   instance_type = "t2.micro"
-  security_groups = [ aws_security_group.alb.id ]
+  security_groups = ["${aws_security_group.alb_sec.id}"]
   user_data = <<EOF
   #!/bin/bash
   sudo apt install nginx -y
