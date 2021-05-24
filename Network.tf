@@ -8,7 +8,7 @@ resource "aws_vpc" "main" {
 
 resource "aws_subnet" "PublicSubnet" {
     vpc_id = aws_vpc.main.id
-    cidr_block = "19.6.1.0/32"
+    cidr_block = "${var.PublicSubnet}"
     tags = {
       "name" = "Public Subnet"
     }
@@ -17,7 +17,7 @@ resource "aws_subnet" "PublicSubnet" {
 
 resource "aws_subnet" "PrivateSubnet" {
     vpc_id = aws_vpc.main.id
-    cidr_block = "19.6.2.0/32"
+    cidr_block = "${var.PrivateSubnet}"
     tags = {
       "name" = "Private Subnet"
     }
